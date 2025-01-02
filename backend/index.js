@@ -5,6 +5,13 @@ import { mongodb } from "./database/db.js";
 import auth from "./routes/auth.js";
 import dotenv from "dotenv";
 import note from "./routes/notes.js";
+import cors from "cors";
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    methods: ["POST", "GET", "PUT", "DELETE"],
+  })
+);
 
 dotenv.config();
 app.use(express.json());
