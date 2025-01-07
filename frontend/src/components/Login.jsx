@@ -1,11 +1,16 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import AlertContext from "../Context/Alert/alertContext";
+import { useContext } from "react";
 const Login = () => {
+  const context = useContext(AlertContext);
+  const { showAlert } = context;
   const Navigate = useNavigate();
   const [login, setLogin] = useState({ email: "", password: "" });
   useEffect(() => {
     document.title = "Login - KeepNote";
     if (localStorage.getItem("token")) {
+      showAlert("Login Already Found Redirecting to App", "blue");
       setInterval(() => {
         Navigate("/");
       }, 2000);
@@ -23,6 +28,10 @@ const Login = () => {
       });
       const data = await result.json();
       localStorage.setItem("token", data.authtoken);
+      showAlert("Login Successfull", "green");
+      if(data.error){
+        showAlert(data.error, "red");
+      }
       Navigate("/");
     } catch (e) {
       console.log(e);

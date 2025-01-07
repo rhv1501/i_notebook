@@ -1,6 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState,useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import AlertContext from "../Context/Alert/alertContext";
 const Signup = () => {
+  const context = useContext(AlertContext);
+  const { showAlert } = context;
   const Navigate = useNavigate();
   const [signup, setsignup] = useState({ email: "", password: "", name: "" });
   const onChange = (e) => {
@@ -19,10 +22,11 @@ const Signup = () => {
       const data = await result.json();
       if (data.authtoken) {
         localStorage.setItem("token", data.authtoken);
+        showAlert("Signup Successfull", "green");
         Navigate("/");
       }
       if (data.error) {
-        alert(data.error);
+        showAlert(data.error, "red");
         setsignup({ email: "", password: "", name: "" });
       }
     } catch (e) {

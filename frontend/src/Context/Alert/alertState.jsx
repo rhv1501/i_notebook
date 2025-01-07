@@ -7,8 +7,22 @@ const AlertState = (props) => {
     msg: "Welcome To i_Notebook",
     color: "blue",
   });
+  const showAlert = (msg, color) => {
+    setalertData({
+      show: true,
+      msg,
+      color,
+    });
+    setTimeout(() => {
+      setalertData({
+        show: false,
+        msg: "",
+        color: "",
+      });
+    }, 2000);
+  };
   return (
-    <AlertContext.Provider value={{ alertData, setalertData }}>
+    <AlertContext.Provider value={{ alertData, showAlert }}>
       {props.children}
     </AlertContext.Provider>
   );

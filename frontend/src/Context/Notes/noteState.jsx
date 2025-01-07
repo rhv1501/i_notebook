@@ -1,7 +1,10 @@
 import noteContext from "./noteContext";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import PropTypes from "prop-types";
+import AlertContext from "../Alert/alertContext";
 const NoteState = (props) => {
+  const context = useContext(AlertContext);
+  const { showAlert } = context;
   const [Note, setNote] = useState([]);
   const fetchnotes = async () => {
     try {
@@ -13,6 +16,10 @@ const NoteState = (props) => {
       });
       const data = await res.json();
       setNote(data);
+      showAlert("Notes Fetched Successfully", "success");
+      if (data.error) {
+        showAlert(data.error, "red");
+      }
     } catch (e) {
       console.log(e);
     }
@@ -31,6 +38,7 @@ const NoteState = (props) => {
         }
       );
       res.json();
+      showAlert("Note Deleted Successfully", "success");
     } catch (e) {
       console.log(e);
     }
@@ -48,6 +56,7 @@ const NoteState = (props) => {
       });
       const note = await res.json();
       setNote((prevNotes) => [...prevNotes, note]);
+      showAlert("Note Added Successfully", "success");
     } catch (e) {
       console.log(e);
     }
@@ -69,6 +78,7 @@ const NoteState = (props) => {
           }),
         }
       );
+      showAlert("Note Edited Successfully", "success");
       fetchnotes();
       (await res).json;
     } catch (e) {
