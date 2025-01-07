@@ -1,6 +1,6 @@
 import express from "express";
 import bcrypt, { hash } from "bcrypt";
-import users from "../schemas/User.js"
+import users from "../schemas/User.js";
 import { body, validationResult } from "express-validator";
 import jwt from "jsonwebtoken";
 import getuser from "../middlewares/getuser.js";

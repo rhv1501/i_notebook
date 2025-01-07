@@ -6,10 +6,13 @@ import auth from "./routes/auth.js";
 import dotenv from "dotenv";
 import note from "./routes/notes.js";
 import cors from "cors";
+import cookieParser from "cookie-parser";
+app.use(cookieParser());
 app.use(
   cors({
     origin: "http://localhost:5173",
     methods: ["POST", "GET", "PUT", "DELETE"],
+    credentials: true,
   })
 );
 

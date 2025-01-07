@@ -31,7 +31,7 @@ const Notesitem = () => {
   };
   useEffect(() => {
     fetchnotes();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -44,6 +44,7 @@ const Notesitem = () => {
       />
       <div className="font-bold text-center text-2xl mb-4">Your Notes</div>
       <div className="flex flex-row flex-wrap justify-center">
+        {Note.length === 0 && <h3>No Notes To Display</h3>}
         {Note.map((data) => {
           return (
             <div className="my-5 mx-2" key={data._id}>

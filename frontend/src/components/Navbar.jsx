@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
-
+import { useNavigate } from "react-router-dom";
 const Navbar = () => {
   let location = useLocation();
   const [isChecked, setIsChecked] = useState(" ");
@@ -15,6 +15,19 @@ const Navbar = () => {
     document.body.style.background = "white";
     document.body.style.color = "black";
   }
+  const Navigate = useNavigate();
+  const LoginControler = () => {
+    Navigate("/login");
+  };
+  const SignupController = () => {
+    Navigate("/signup");
+  };
+  const logoutController = () => {
+    localStorage.removeItem("token");
+    setInterval(() => {
+      Navigate("/signup");
+    }, 2000);
+  };
   return (
     <>
       <div className="switch flex justify-end mr-10 mt-2 mb-2">
@@ -93,22 +106,30 @@ const Navbar = () => {
               </li> */}
             </ul>
           </div>
-          <div className="order-2 md:order-3">
-            <button className="px-4 py-2 bg-indigo-500 hover:bg-indigo-600 text-gray-50 rounded-xl flex items-center gap-2">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
-                viewBox="0 0 20 20"
-                fill="currentColor"
+          <div className="order-2 md:order-3 flex flex-row gap-2">
+            {!localStorage.getItem("token") ? (
+              <button
+                onClick={LoginControler}
+                className="px-4 py-2 bg-indigo-500 hover:bg-indigo-600 text-gray-50 rounded-xl flex items-center gap-2"
               >
-                <path
-                  fillRule="evenodd"
-                  d="M3 3a1 1 0 011 1v12a1 1 0 11-2 0V4a1 1 0 011-1zm7.707 3.293a1 1 0 010 1.414L9.414 9H17a1 1 0 110 2H9.414l1.293 1.293a1 1 0 01-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0z"
-                  clipRule="evenodd"
-                />
-              </svg>
-              <span>Login</span>
-            </button>
+                <span>Login</span>
+              </button>
+            ) : (
+              <button
+                onClick={logoutController}
+                className="px-4 py-2 bg-indigo-500 hover:bg-indigo-600 text-gray-50 rounded-xl flex items-center gap-2"
+              >
+                <span>Logout</span>
+              </button>
+            )}
+            {!localStorage.getItem("token") ? (
+              <button
+                onClick={SignupController}
+                className="px-4 py-2 bg-indigo-500 hover:bg-indigo-600 text-gray-50 rounded-xl flex items-center gap-2"
+              >
+                <span>sign up</span>
+              </button>
+            ) : null}
           </div>
         </div>
       </nav>
