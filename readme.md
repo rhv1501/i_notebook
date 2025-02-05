@@ -46,7 +46,7 @@ npm run dev
 
 
 
-###🔹 Post Installation Steps
+### 🔹 Post Installation Steps
 
 Once the installation is complete and the server is running, follow these steps:
 
