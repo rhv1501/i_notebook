@@ -29,14 +29,14 @@ A **secure and fast** notes app built using the **MERN stack**. i_Notebook lets 
 
 2. Install dependencies
 
-``` npm install
+```npm install
 cd client
 npm install
 
 
 3. Set up environment variables in a .env file (backend)
 
-``` MONGO_URI=your_mongodb_uri
+```MONGO_URI=your_mongodb_uri
 JWT_SECRET=your_secret_key
 
 
