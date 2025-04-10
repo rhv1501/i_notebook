@@ -1,76 +1,84 @@
 # 📝 i_Notebook
 
-A **secure and fast** notes app built using the **MERN stack**. i_Notebook lets users **create, edit, and organize** their notes efficiently, with **authentication and user-specific data storage**.  
+A **secure and fast** notes app built using the **MERN stack**. i_Notebook lets users **create, edit, and organize** their notes efficiently, with **authentication and user-specific data storage**.
 
-## 🚀 Features  
+---
+
+## 🚀 Features
 
 ✅ **Authentication System** – Secure login & signup (JWT-based)  
 ✅ **User-Specific Notes** – Notes are stored privately for each user  
 ✅ **Fast & Responsive UI** – Smooth experience on all devices  
 ✅ **CRUD Operations** – Create, Read, Update, and Delete notes easily  
 ✅ **Dark Mode Support** – User-friendly reading experience  
-✅ **Cloud Storage** – Store notes securely in the database  
+✅ **Cloud Storage** – Store notes securely in the database
+
+---
+
+## 🏗️ Tech Stack
+
+- **Frontend:** React.js, Tailwind
+- **Backend:** Node.js, Express.js
+- **Database:** MongoDB
+- **Authentication:** JWT (JSON Web Token)
+
+---
+
+## 🎯 Getting Started
+
+### 🔹 Run Locally with Docker Compose
+
+#### 🧰 Prerequisites
+
+- [Docker](https://www.docker.com/) installed
+- [Docker Compose](https://docs.docker.com/compose/) installed
+
+#### 📦 Project Structure
+
+i_notebook/ ├── backend/ │ ├── Dockerfile │ ├── .env │ └── ... ├── client/ │ ├── Dockerfile │ └── ... ├── docker-compose.yml └── README.md
 
 
-## 🏗️ Tech Stack  
 
-- **Frontend:** React.js, Tailwind  
-- **Backend:** Node.js, Express.js  
-- **Database:** MongoDB  
-- **Authentication:** JWT (JSON Web Token)  
+#### ⚙️ Setup  
 
-## 🎯 Getting Started  
-
-### 🔹 Installation  
-1. Clone the repository  
+1. **Clone the repository**  
    ```bash
    git clone https://github.com/yourusername/i_notebook.git
    cd i_notebook
 
-2. Install dependencies
 
-npm install
-cd client
-npm install
+2. **Create and update env file**
+   ```bash
+   Add JWT_SCREAT
 
+3. **Run The Docker Compose File**
+   ```bash 
+   Run docker-compose up --d
 
-3. Set up environment variables in a .env file (backend)
+#### Post Installation Steps
+- Once the app is running:
 
-MONGO_URI=your_mongodb_uri
-JWT_SECRET=your_secret_key
+- Create an account – Sign up using the frontend UI
 
+- Login – Use your credentials to access your notes
 
-4. Start the development server
+- Add Notes – Click "Add Note" to create a new note
 
-npm run dev
+- Edit Notes – Click an existing note to update it
 
+- Delete Notes – Use the delete icon to remove a note
 
+- Test Authentication – Log out and back in to ensure secure access
 
-### 🔹 Post Installation Steps
+- Verify Database – Use MongoDB Compass/Atlas to check note storage
 
-Once the installation is complete and the server is running, follow these steps:
+##### Contributing
+- Contributions are welcome!
 
-1. Create an account – Sign up using the frontend UI.
+- Fork the repository
 
+- Create a new feature branch
 
-2. Login to your account – Use your credentials to access the notes.
+- Make your changes
 
-
-3. Add Notes – Click the "Add Note" button to create a new note.
-
-
-4. Edit Notes – Click on an existing note to update it.
-
-
-5. Delete Notes – Remove notes using the delete button.
-
-
-6. Test Authentication – Try logging out and logging back in to verify authentication.
-
-
-7. Check Database – If using MongoDB Compass or Atlas, verify that user notes are stored properly.
-
-
-🤝 Contributing
-
-Feel free to contribute! Fork the repository, create a feature branch, and submit a pull request.
+- Submit a pull request
