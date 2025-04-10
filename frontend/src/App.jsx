@@ -11,8 +11,8 @@ import Signup from "./components/Signup";
 const App = () => {
   return (
     <>
-      <NoteState>
-        <AlertState>
+      <AlertState>
+        <NoteState>
           <Router>
             <Navbar />
             <Alert message="Welcome To i_Notebook" />
@@ -23,8 +23,8 @@ const App = () => {
               <Route exact path="/signup" element={<Signup />} />
             </Routes>
           </Router>
-        </AlertState>
-      </NoteState>
+        </NoteState>
+      </AlertState>
     </>
   );
 };

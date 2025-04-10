@@ -16,7 +16,7 @@ const NoteState = (props) => {
       });
       const data = await res.json();
       setNote(data);
-      showAlert("Notes Fetched Successfully", "success");
+      showAlert("Notes Fetched Successfully", "green");
       if (data.error) {
         showAlert(data.error, "red");
       }
@@ -56,7 +56,7 @@ const NoteState = (props) => {
       });
       const note = await res.json();
       setNote((prevNotes) => [...prevNotes, note]);
-      showAlert("Note Added Successfully", "success");
+      showAlert("Note Added Successfully", "green");
     } catch (e) {
       console.log(e);
     }
@@ -78,7 +78,7 @@ const NoteState = (props) => {
           }),
         }
       );
-      showAlert("Note Edited Successfully", "success");
+      showAlert("Note Edited Successfully", "green");
       fetchnotes();
       (await res).json;
     } catch (e) {
